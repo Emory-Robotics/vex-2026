@@ -12,5 +12,4 @@ void auton(){
     chassis->turnAngle(45_deg);
     chassis->turnAngle(-45_deg);
     pros::delay(25000);
-    
 }

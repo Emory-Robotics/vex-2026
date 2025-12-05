@@ -15,10 +15,11 @@ pros::Motor right3(13, pros::E_MOTOR_GEARSET_06);
 pros::Motor right4(-14, pros::E_MOTOR_GEARSET_06);
 
 
-pros::Motor elevatorLowerFront(20, pros::E_MOTOR_GEARSET_06);
+pros::Motor elevatorLowerFrontLeft(20, pros::E_MOTOR_GEARSET_06);
 pros::Motor elevatorLowerBack(-19, pros::E_MOTOR_GEARSET_06);
 pros::Motor elevatorUpperFront(18, pros::E_MOTOR_GEARSET_18);
 pros::Motor elevatorUpperBack(17, pros::E_MOTOR_GEARSET_06);
+pros::Motor elevatorLowerFrontRight(-16, pros::E_MOTOR_GEARSET_06);
 
 
 std::shared_ptr<OdomChassisController> chassis =
