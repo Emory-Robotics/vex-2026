@@ -10,7 +10,6 @@ void intakeControl(){
     elevatorUpperBack.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     elevatorLowerFrontLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     elevatorLowerFrontRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-
     elevatorLowerBack.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
     elevatorUpperFront.move_velocity(0);
@@ -19,30 +18,42 @@ void intakeControl(){
     elevatorLowerFrontRight.move_velocity(0);
     elevatorLowerBack.move_velocity(0);
 
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && !master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-        elevatorUpperFront.move(128);
-        elevatorUpperBack.move(128);
-        elevatorLowerFrontLeft.move(128);
-        elevatorLowerFrontRight.move(128);
-        elevatorLowerBack.move(128);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2) && !master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
-        elevatorUpperFront.move(-128);
-        elevatorUpperBack.move(-128);
-        elevatorLowerFrontLeft.move(-128);
-        elevatorLowerFrontRight.move(-128);
-        elevatorLowerBack.move(-128);
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+        // intake back + output middle
+        elevatorUpperFront.move_velocity(-100);
+        elevatorLowerFrontLeft.move_velocity(600);
+        elevatorLowerFrontRight.move_velocity(600);
+        
+        elevatorUpperBack.move_velocity(600);
+        elevatorLowerBack.move_velocity(-600);
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
+        // output top
+        elevatorUpperFront.move_velocity(200);
+        elevatorUpperBack.move_velocity(600);
+        elevatorLowerFrontLeft.move_velocity(600);
+        elevatorLowerFrontRight.move_velocity(600);
+        elevatorLowerBack.move_velocity(600);
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+        // output bottom
+        elevatorUpperFront.move_velocity(-200);
+        elevatorUpperBack.move_velocity(-600);
+        elevatorLowerFrontLeft.move_velocity(-600);
+        elevatorLowerFrontRight.move_velocity(-600);
+        elevatorLowerBack.move_velocity(-600);
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
-        elevatorUpperFront.move(128);
-        elevatorUpperBack.move(-128);
-        elevatorLowerFrontLeft.move(128);
-        elevatorLowerFrontRight.move(128);
-        elevatorLowerBack.move(128);
+        // output back
+        elevatorUpperFront.move_velocity(200);
+        elevatorUpperBack.move_velocity(-600);
+        elevatorLowerFrontLeft.move_velocity(600);
+        elevatorLowerFrontRight.move_velocity(600);
+        elevatorLowerBack.move_velocity(600);
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-        elevatorUpperFront.move(-128);
-        elevatorUpperBack.move(128);
-        elevatorLowerFrontLeft.move(128);
-        elevatorLowerFrontRight.move(128);
-        elevatorLowerBack.move(128);
+        // output mid
+        elevatorUpperFront.move_velocity(-100);
+        elevatorUpperBack.move_velocity(600);
+        elevatorLowerFrontLeft.move_velocity(600);
+        elevatorLowerFrontRight.move_velocity(600);
+        elevatorLowerBack.move_velocity(600);
     } else {
         elevatorUpperFront.move_velocity(0);
         elevatorUpperBack.move_velocity(0);
