@@ -4,6 +4,7 @@ int forward = 0;
 int lateral = 0;
 int forwardAcc = 5;
 int lateralAcc = 50;
+int slowDrive = 1;
 
 void driveControl(){
     // drive train control code (for driver control)
@@ -27,8 +28,13 @@ void driveControl(){
         lateral += std::min(lateralAcc, diff);
     }*/
 
-    forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+        if (slowDrive == 1) slowDrive = 0.5;
+        else slowDrive = 1;
+    }
+
+    forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 0.5 * slowDrive;
+    lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 0.5 * slowDrive;
 
     int left = forward - lateral;
     int right = - forward - lateral;
