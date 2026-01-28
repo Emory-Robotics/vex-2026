@@ -88,6 +88,8 @@ extern pros::Motor elevatorLowerBack;
 extern pros::Motor elevatorUpperFront;
 extern pros::Motor elevatorUpperBack;
 
+extern pros::Motor elevatorHood;
+
 extern std::shared_ptr<OdomChassisController> chassis;
 
 // vars

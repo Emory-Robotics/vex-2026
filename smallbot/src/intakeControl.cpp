@@ -27,6 +27,7 @@ void intakeControl(){
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
         // intake back + output middle
         elevatorUpperFront.move_velocity(-100 * slowElevator);
+        elevatorHood.move_velocity(200 * slowElevator);
         elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(600 * slowElevator);
         
@@ -35,6 +36,7 @@ void intakeControl(){
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
         // output top
         elevatorUpperFront.move_velocity(200 * slowElevator);
+        elevatorHood.move_velocity(600 * slowElevator);
         elevatorUpperBack.move_velocity(0);
         elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(600 * slowElevator);
@@ -42,6 +44,7 @@ void intakeControl(){
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
         // output bottom
         elevatorUpperFront.move_velocity(-200 * slowElevator);
+        elevatorHood.move_velocity(200 * slowElevator);
         elevatorUpperBack.move_velocity(-600 * slowElevator);
         elevatorLowerFrontLeft.move_velocity(-600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(-600 * slowElevator);
@@ -49,6 +52,7 @@ void intakeControl(){
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
         // output back
         elevatorUpperFront.move_velocity(200 * slowElevator);
+        elevatorHood.move_velocity(200 * slowElevator);
         elevatorUpperBack.move_velocity(-600 * slowElevator);
         elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(600 * slowElevator);
@@ -56,14 +60,16 @@ void intakeControl(){
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
         // output mid
         elevatorUpperFront.move_velocity(-100 * slowElevator);
+        elevatorHood.move_velocity(200 * slowElevator);
         elevatorUpperBack.move_velocity(600 * slowElevator);
         elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(600 * slowElevator);
         elevatorLowerBack.move_velocity(600 * slowElevator);
     } else {
         elevatorUpperFront.move_velocity(0);
+        elevatorHood.move_velocity(0);
         elevatorUpperBack.move_velocity(0);
-       elevatorLowerFrontLeft.move_velocity(0);
+        elevatorLowerFrontLeft.move_velocity(0);
         elevatorLowerFrontRight.move_velocity(0);
         elevatorLowerBack.move_velocity(0);
     }
