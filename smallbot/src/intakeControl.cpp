@@ -2,14 +2,10 @@
 #define max_analog 128.0 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
 
 int clampDelay = 10;
-int slowElevator = 1;
+long slowElevator = 1;
 bool clamp = true;
 
 void intakeControl(){
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-        if (slowElevator == 1) slowElevator = 0.5;
-        else slowElevator = 1;
-    }
 
     // intake control code (for driver control)
     elevatorUpperFront.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
@@ -24,7 +20,11 @@ void intakeControl(){
     elevatorLowerFrontRight.move_velocity(0);
     elevatorLowerBack.move_velocity(0);
 
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+        if (slowElevator == 1) slowElevator = 0.5;
+        else slowElevator = 1;
+    }
+    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
         // intake back + output middle
         elevatorUpperFront.move_velocity(-100 * slowElevator);
         elevatorHood.move_velocity(200 * slowElevator);

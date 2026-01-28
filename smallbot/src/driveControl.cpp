@@ -4,7 +4,7 @@ int forward = 0;
 int lateral = 0;
 int forwardAcc = 5;
 int lateralAcc = 50;
-int slowDrive = 1;
+long slowDrive = 1;
 
 void driveControl(){
     // drive train control code (for driver control)
