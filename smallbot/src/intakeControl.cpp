@@ -2,7 +2,7 @@
 #define max_analog 128.0 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
 
 int clampDelay = 10;
-long slowElevator = 1;
+double slowElevator = 1;
 bool clamp = true;
 
 void intakeControl(){
@@ -21,7 +21,7 @@ void intakeControl(){
     elevatorLowerBack.move_velocity(0);
 
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-        if (slowElevator == 1) slowElevator = 0.5;
+        if (slowElevator == 1) slowElevator = 0.35;
         else slowElevator = 1;
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1) && master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
@@ -54,6 +54,14 @@ void intakeControl(){
         elevatorUpperFront.move_velocity(200 * slowElevator);
         elevatorHood.move_velocity(200 * slowElevator);
         elevatorUpperBack.move_velocity(-600 * slowElevator);
+        elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
+        elevatorLowerFrontRight.move_velocity(600 * slowElevator);
+        elevatorLowerBack.move_velocity(600 * slowElevator);
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+        // output mid
+        elevatorUpperFront.move_velocity(-100 * slowElevator);
+        elevatorHood.move_velocity(200 * slowElevator);
+        elevatorUpperBack.move_velocity(600 * slowElevator);
         elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(600 * slowElevator);
         elevatorLowerBack.move_velocity(600 * slowElevator);

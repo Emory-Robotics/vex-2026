@@ -26,7 +26,7 @@ pros::Motor elevatorHood(15, pros::E_MOTOR_GEARSET_18);
 
 std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()
-        .withMotors({2, -3, 4, -5}, {11, -12, 13, -14})
+        .withMotors({2, 3, 4, 5}, {-11, -12, -13, -14})
         // Blue gearset, 4 in in wheel diam, 26 cm in wheel track
         .withDimensions({AbstractMotor::gearset::blue, (84.0 / 36.0)}, {{4_in, 13.5_in}, imev5BlueTPR})
         /*.withSensors(
