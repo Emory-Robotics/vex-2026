@@ -6,13 +6,13 @@ void skillsAuton(){
 
 void auton(){
     // autonomous code
-    chassis->setMaxVelocity(280);
+    chassis->setMaxVelocity(250);
 
-    chassis->turnAngle(-90_deg);
-    pros::delay(2000);
-    chassis->turnAngle(90_deg);
-    pros::delay(2000);
-    chassis->turnAngle(-90_deg);
+    chassis->moveDistance(18_in);
+    pros::delay(1000);
+    chassis->turnAngle(-85_deg);
+    pros::delay(1000);
+    chassis->moveDistance(10_in);
 
     //back wall to match loader
     // chassis->moveDistance(1_ft);
