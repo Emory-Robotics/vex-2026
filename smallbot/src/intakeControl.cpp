@@ -21,7 +21,7 @@ void intakeControl(){
     elevatorLowerFrontRight.move_velocity(0);
     elevatorLowerBack.move_velocity(0);
 
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
         if (slowElevator == 1) slowElevator = 0.35;
         else slowElevator = 1;
     }
@@ -87,10 +87,10 @@ void intakeControl(){
 void intake(){
     // output top
         elevatorUpperFront.move_velocity(200);
-        elevatorHood.move_velocity(600);
+        //elevatorHood.move_velocity(600);
         elevatorUpperBack.move_velocity(600);
-        elevatorLowerFrontLeft.move_velocity(600);
-        elevatorLowerFrontRight.move_velocity(600 );
+        elevatorLowerFrontLeft.move_velocity(-600);
+        elevatorLowerFrontRight.move_velocity(600);
         elevatorLowerBack.move_velocity(600);
 }
 void intakeStop(){
@@ -121,19 +121,26 @@ void lilwillmechControlAutonUP() {
     lilwillmech.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     lilwillmech.move_relative(270, 100);
 }
-void score(){}
+void score(){
+    elevatorUpperFront.move_velocity(200);
+    elevatorHood.move_velocity(600);
+    elevatorUpperBack.move_velocity(600);
+    elevatorLowerFrontLeft.move_velocity(600);
+    elevatorLowerFrontRight.move_velocity(600 );
+    elevatorLowerBack.move_velocity(600);
+}
 void ramIntoWall() {
-    left1.move_velocity(300);
-    left2.move_velocity(300);
-    left3.move_velocity(300);
-    left4.move_velocity(300);
+    left1.move_velocity(150);
+    left2.move_velocity(150);
+    left3.move_velocity(150);
+    left4.move_velocity(150);
     
-    right1.move_velocity(-300);
-    right2.move_velocity(-300);
-    right3.move_velocity(-300);
-    right4.move_velocity(-300);
+    right1.move_velocity(-150);
+    right2.move_velocity(-150);
+    right3.move_velocity(-150);
+    right4.move_velocity(-150);
 
-    pros::delay(750);
+    pros::delay(5);
 }
 void ramOutWall() {
     left1.move_velocity(-300);
@@ -146,6 +153,6 @@ void ramOutWall() {
     right3.move_velocity(300);
     right4.move_velocity(300);
 
-    pros::delay(1000);
+    pros::delay(500);
 }
     
