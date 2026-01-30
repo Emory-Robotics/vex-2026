@@ -4,6 +4,7 @@
 int clampDelay = 10;
 double slowElevator = 1;
 bool clamp = true;
+bool check = true;  // persists between function calls
 
 void intakeControl(){
 
@@ -37,7 +38,7 @@ void intakeControl(){
         // output top
         elevatorUpperFront.move_velocity(200 * slowElevator);
         elevatorHood.move_velocity(600 * slowElevator);
-        elevatorUpperBack.move_velocity(0);
+        elevatorUpperBack.move_velocity(600 * slowElevator);
         elevatorLowerFrontLeft.move_velocity(600 * slowElevator);
         elevatorLowerFrontRight.move_velocity(600 * slowElevator);
         elevatorLowerBack.move_velocity(600 * slowElevator);
@@ -84,10 +85,67 @@ void intakeControl(){
 
 }
 void intake(){
-    
-    
+    // output top
+        elevatorUpperFront.move_velocity(200);
+        elevatorHood.move_velocity(600);
+        elevatorUpperBack.move_velocity(600);
+        elevatorLowerFrontLeft.move_velocity(600);
+        elevatorLowerFrontRight.move_velocity(600 );
+        elevatorLowerBack.move_velocity(600);
 }
-void score(){
-    
-    
+void intakeStop(){
+        elevatorUpperFront.move_velocity(0);
+        elevatorHood.move_velocity(0);
+        elevatorUpperBack.move_velocity(0);
+        elevatorLowerFrontLeft.move_velocity(0);
+        elevatorLowerFrontRight.move_velocity(0);
+        elevatorLowerBack.move_velocity(0);
 }
+
+void lilwillmechControl() {
+    lilwillmech.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+        if (check) {
+            lilwillmech.move_relative(-300, 100);
+        } else {
+            lilwillmech.move_relative(300, 100);
+        }
+        check = !check;  // toggle state
+    }
+}
+void lilwillmechControlAuton() {
+    lilwillmech.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    lilwillmech.move_relative(-270, 100);
+}
+void lilwillmechControlAutonUP() {
+    lilwillmech.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    lilwillmech.move_relative(270, 100);
+}
+void score(){}
+void ramIntoWall() {
+    left1.move_velocity(300);
+    left2.move_velocity(300);
+    left3.move_velocity(300);
+    left4.move_velocity(300);
+    
+    right1.move_velocity(-300);
+    right2.move_velocity(-300);
+    right3.move_velocity(-300);
+    right4.move_velocity(-300);
+
+    pros::delay(750);
+}
+void ramOutWall() {
+    left1.move_velocity(-300);
+    left2.move_velocity(-300);
+    left3.move_velocity(-300);
+    left4.move_velocity(-300);
+    
+    right1.move_velocity(300);
+    right2.move_velocity(300);
+    right3.move_velocity(300);
+    right4.move_velocity(300);
+
+    pros::delay(1000);
+}
+    

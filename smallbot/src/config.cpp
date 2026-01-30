@@ -22,6 +22,7 @@ pros::Motor elevatorUpperBack(17, pros::E_MOTOR_GEARSET_06);
 pros::Motor elevatorLowerFrontRight(-16, pros::E_MOTOR_GEARSET_06);
 
 pros::Motor elevatorHood(15, pros::E_MOTOR_GEARSET_18);
+pros::Motor lilwillmech(1, pros::E_MOTOR_GEARSET_18);
 
 
 std::shared_ptr<OdomChassisController> chassis =
