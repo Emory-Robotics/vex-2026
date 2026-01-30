@@ -87,7 +87,7 @@ void intakeControl(){
 void intake(){
     // output top
         elevatorUpperFront.move_velocity(200);
-        //elevatorHood.move_velocity(600);
+        elevatorHood.move_velocity(600);
         elevatorUpperBack.move_velocity(600);
         elevatorLowerFrontLeft.move_velocity(-600);
         elevatorLowerFrontRight.move_velocity(600);

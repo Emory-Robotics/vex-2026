@@ -6,7 +6,7 @@ void skillsAuton(){
 
 void auton(){
     // autonomous code
-    chassis->setMaxVelocity(350);
+    chassis->setMaxVelocity(375);
 
     chassis->moveDistance(19.55_in);
     lilwillmechControlAuton();
@@ -19,11 +19,11 @@ void auton(){
     pros::delay(500);
 
     intake();
-    chassis->moveDistance(-1.5_in);
+    chassis->moveDistance(-1.8_in);
     pros::delay(10);
-    chassis->moveDistance(1.85_in);
+    chassis->moveDistance(2_in);
     //ramIntoWall();
-    pros::delay(300);
+    pros::delay(400);
     
     // chassis->moveDistance(-3_in);
     //ramIntoWall();
