@@ -6,59 +6,53 @@ void skillsAuton(){
 
 void auton(){
     // autonomous code
-    chassis->setMaxVelocity(375);
+    chassis->setMaxVelocity(415);
 
     chassis->moveDistance(19.55_in);
-    lilwillmechControlAuton();
-    intake();
-    pros::delay(500);
-    intakeStop();
-    chassis->turnAngle(-78_deg);
-    pros::delay(500);
-    chassis->moveDistance(10.5_in);
-    pros::delay(500);
-
-    intake();
-    chassis->moveDistance(-1.8_in);
-    pros::delay(10);
-    chassis->moveDistance(2_in);
-    //ramIntoWall();
     pros::delay(400);
-    
-    // chassis->moveDistance(-3_in);
-    //ramIntoWall();
-
-    // chassis->moveDistance(-3_in);
-    // ramIntoWall();
-    //pros::delay(2000);
+    chassis->turnAngle(80_deg);
+    pros::delay(400);
+    chassis->moveDistance(12.5_in);
+    pros::delay(400);
+    score();
+    pros::delay(1500);
     intakeStop();
-    
+    chassis->moveDistance(-7_in);
+    pros::delay(300);
+    chassis->turnAngle(-160_deg);
+    lilwillmechControlAuton();
+    //chassis->turnAngle(-78.5_deg);
+    //pros::delay(500);
+    pros::delay(300);
+    chassis->moveDistance(16.2_in);
+    pros::delay(300);
 
-    // intake();
-    // chassis->moveDistance(-3_in);
-    // chassis->moveDistance(3_in);
-    // chassis->moveDistance(-3_in);
-    // chassis->moveDistance(3_in);
-    // chassis->moveDistance(-3_in);
-    // chassis->moveDistance(3_in);
-    // intakeStop();
-    pros::delay(2000);
+    // chassis->moveDistance(-2_in);
+    // pros::delay(10);
+    // chassis->moveDistance(3.5_in);
+    score();
+    //ramIntoWall();
+    pros::delay(350);
+    
+    intakeStop();
+    pros::delay(400);
 
     chassis->moveDistance(-7_in);
-    pros::delay(1000);
-    chassis->turnAngle(-157_deg);
+    pros::delay(300);
+    chassis->turnAngle(-159.0_deg);
     lilwillmechControlAutonUP();
-    chassis->moveDistance(11.7_in);
-    pros::delay(1000);
+    chassis->moveDistance(12.5_in);
+    pros::delay(500);
     score(); 
     chassis->setMaxVelocity(600);
-    pros::delay(1000);
+    pros::delay(3000);
     intakeStop();
-    // chassis->moveDistance(-3_in);
-    // pros::delay(500);
-    // chassis->moveDistance(-3_in);
-    // pros::delay(500);
-    // score();
-    // pros::delay(1000);
-    // intakeStop();
+
+    chassis->moveDistance(-6_in);
+    pros::delay(300);
+    chassis->turnAngle(78.5_deg);
+    pros::delay(300);
+    chassis->moveDistance(16_in);
+    pros::delay(300);
+    chassis->turnAngle(-78.5_deg);
 }

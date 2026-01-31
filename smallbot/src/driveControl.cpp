@@ -33,8 +33,8 @@ void driveControl(){
         else slowDrive = 1;
     }
 
-    forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 0.4 * slowDrive;
-    lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 0.4 * slowDrive;
+    forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 0.75 * slowDrive;
+    lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 0.75 * slowDrive;
 
     int left = forward - lateral;
     int right = - forward - lateral;
