@@ -81,15 +81,10 @@ extern pros::Motor right2;
 extern pros::Motor right3;
 extern pros::Motor right4;
 
+extern pros::Motor intakeMotor;
+extern pros::Motor armMotor;
 
-extern pros::Motor elevatorLowerFrontRight;
-extern pros::Motor elevatorLowerFrontLeft;
-extern pros::Motor elevatorLowerBack;
-extern pros::Motor elevatorUpperFront;
-extern pros::Motor elevatorUpperBack;
-
-extern pros::Motor elevatorHood;
-extern pros::Motor lilwillmech;
+extern pros::ADIDigitalOut armPiston;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 

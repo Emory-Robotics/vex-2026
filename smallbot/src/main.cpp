@@ -69,7 +69,6 @@ void opcontrol() {
 	while (true) {
 		driveControl();
 		intakeControl();
-        lilwillmechControl();
 		pros::delay(20);
 	}
 }

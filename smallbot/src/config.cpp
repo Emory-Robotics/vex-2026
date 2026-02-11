@@ -14,16 +14,10 @@ pros::Motor right2(-12, pros::E_MOTOR_GEARSET_06);
 pros::Motor right3(13, pros::E_MOTOR_GEARSET_06);
 pros::Motor right4(-14, pros::E_MOTOR_GEARSET_06);
 
+pros::Motor intakeMotor(10, pros::E_MOTOR_GEARSET_18);
+pros::Motor armMotor(20, pros::E_MOTOR_GEARSET_36);
 
-pros::Motor elevatorLowerFrontLeft(20, pros::E_MOTOR_GEARSET_06);
-pros::Motor elevatorLowerBack(-19, pros::E_MOTOR_GEARSET_06);
-pros::Motor elevatorUpperFront(18, pros::E_MOTOR_GEARSET_18);
-pros::Motor elevatorUpperBack(17, pros::E_MOTOR_GEARSET_06);
-pros::Motor elevatorLowerFrontRight(-16, pros::E_MOTOR_GEARSET_06);
-
-pros::Motor elevatorHood(15, pros::E_MOTOR_GEARSET_18);
-pros::Motor lilwillmech(1, pros::E_MOTOR_GEARSET_18);
-
+pros::ADIDigitalOut armPiston ('A');
 
 std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()
