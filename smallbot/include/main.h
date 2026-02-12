@@ -88,6 +88,9 @@ extern pros::ADIDigitalOut armPiston;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 
+extern pros::ADIDigitalIn upButtonSensor;
+extern pros::ADIDigitalIn downButtonSensor;
+
 // vars
 extern float robotx;
 extern float roboty;

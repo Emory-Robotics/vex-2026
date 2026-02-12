@@ -19,6 +19,9 @@ pros::Motor armMotor(20, pros::E_MOTOR_GEARSET_36);
 
 pros::ADIDigitalOut armPiston ('A');
 
+pros::ADIDigitalIn upButtonSensor ('B');
+pros::ADIDigitalIn downButtonSensor ('C');
+
 std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()
         .withMotors({2, 3, 4, 5}, {-11, -12, -13, -14})

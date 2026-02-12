@@ -13,10 +13,10 @@ void intakeControl(){
 
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
         intakeMotor.move_velocity(200);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-        armMotor.move_velocity(-100);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && upButtonSensor.get_value() == 0){
         armMotor.move_velocity(100);
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2) && downButtonSensor.get_value() == 1){
+        armMotor.move_velocity(-100);
     } else {
         intakeMotor.move_velocity(0);
         armMotor.move_velocity(0);
