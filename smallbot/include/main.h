@@ -83,6 +83,8 @@ extern pros::Motor right4;
 
 extern pros::Motor intakeMotor;
 extern pros::Motor armMotor;
+extern pros::Motor armMotor2;
+
 
 extern pros::ADIDigitalOut armPiston;
 

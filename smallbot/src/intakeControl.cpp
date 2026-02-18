@@ -1,5 +1,5 @@
 #include "main.h"
-#define max_analog 128.0 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
+#define max_analog 128 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
 
 int clampDelay = 10;
 bool clamp = true;
@@ -10,14 +10,18 @@ void intakeControl(){
 
     intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     armMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    armMotor2.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
         intakeMotor.move_velocity(200);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && upButtonSensor.get_value() == 0){
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
         armMotor.move_velocity(100);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2) && downButtonSensor.get_value() == 1){
+        armMotor2.move_velocity(100);
+    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
         armMotor.move_velocity(-100);
-    } else {
+        armMotor2.move_velocity(-100);
+    }
+     else {
         intakeMotor.move_velocity(0);
         armMotor.move_velocity(0);
     }
@@ -37,5 +41,3 @@ void intakeControl(){
     }
 
 }
-
-    
