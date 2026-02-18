@@ -108,7 +108,7 @@ void intake(void);
 void score(void);
 void lilwillmechControl(void);
 void lilwillmechControlAuton(void);
-void intakeStop(void);
+void intake(void);
 void lilwillmechControlAutonUP(void);
 void ramIntoWall(void);
 void ramOutWall(void);

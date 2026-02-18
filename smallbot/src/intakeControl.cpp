@@ -14,18 +14,21 @@ void intakeControl(){
 
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
         intakeMotor.move_velocity(200);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-        armMotor.move_velocity(100);
-        armMotor2.move_velocity(100);
+    }
+    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+         intakeMotor.move_velocity(-200);
+    }
+    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+        armMotor.move_velocity(50);
+        armMotor2.move_velocity(50);
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-        armMotor.move_velocity(-100);
-        armMotor2.move_velocity(-100);
+        armMotor.move_velocity(-50);
+        armMotor2.move_velocity(-50);
     }
      else {
         intakeMotor.move_velocity(0);
         armMotor.move_velocity(0);
     }
-
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A) && clampDelay <= 0){
         clamp = !clamp;
         clampDelay = 10;
@@ -39,5 +42,16 @@ void intakeControl(){
     if(!clamp) {
         armPiston.set_value(false); // retract
     }
+
+}
+void score(){
+
+    armMotor.move_velocity(100);
+    armMotor2.move_velocity(100);
+    pros::delay(1000);
+    }
+
+void intake(){
+    lilwillmechControl();
 
 }
