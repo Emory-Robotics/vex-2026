@@ -92,8 +92,6 @@ extern pros::ADIDigitalOut lilWillPiston;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 
-extern pros::ADIDigitalIn upButtonSensor;
-extern pros::ADIDigitalIn downButtonSensor;
 
 // vars
 extern float robotx;
@@ -114,6 +112,8 @@ void intake(void);
 void lilwillmechControlAutonUP(void);
 void ramIntoWall(void);
 void ramOutWall(void);
+void armUp(void);
+void armDown(void);
 #ifdef __cplusplus
 }
 #endif

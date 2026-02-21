@@ -93,12 +93,20 @@ void score(){
     }
 
 void intake(){
-
     intakeMotor.move_velocity(200);
-    pros::delay(2000)
-
+    pros::delay(1000);
 
 }
 void lilwillmechControl(){
-    lilWillPiston.set_value(true);
+    lilWillPiston.set_value(false);
+}
+void armUp() {
+    armMotor2.move_velocity(100);
+    armMotor.move_velocity(100);
+    pros::delay(1000);
+}
+void armDown() {
+    armMotor2.move_velocity(-100);
+    armMotor.move_velocity(-100);
+    pros::delay(1000);
 }
