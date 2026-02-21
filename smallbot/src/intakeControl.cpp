@@ -1,8 +1,13 @@
 #include "main.h"
 #define max_analog 128 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
 
+
 int clampDelay = 10;
+int wingDelay = 10;
+int lilWillDelay = 10;
 bool clamp = true;
+bool wing = true;
+bool lilWill = true;
 
 void intakeControl(){
 
@@ -16,23 +21,41 @@ void intakeControl(){
         intakeMotor.move_velocity(200);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
-         intakeMotor.move_velocity(-200);
+        intakeMotor.move_velocity(-200);
     }
-    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && (clamp == true)){
         armMotor.move_velocity(50);
         armMotor2.move_velocity(50);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+    }
+    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && (clamp == false)){
+        armMotor.move_velocity(25);
+        armMotor2.move_velocity(25);
+    }
+    else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
         armMotor.move_velocity(-50);
         armMotor2.move_velocity(-50);
     }
-     else {
+    else {
         intakeMotor.move_velocity(0);
         armMotor.move_velocity(0);
+        armMotor2.move_velocity(0);
     }
+
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A) && clampDelay <= 0){
         clamp = !clamp;
         clampDelay = 10;
     }
+
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP) && wingDelay <= 0){
+        wing = !wing;
+        wingDelay = 10;
+    }
+
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) && lilWillDelay <= 0){
+        lilWill = !lilWill;
+        lilWillDelay = 10;
+    }
+
 
     clampDelay = clampDelay - 1;
 
@@ -43,7 +66,25 @@ void intakeControl(){
         armPiston.set_value(false); // retract
     }
 
+    wingDelay = wingDelay - 1;
+
+    if(wing){
+        wingPiston.set_value(true); // extend
+    }
+    if(!wing) {
+        wingPiston.set_value(false); // retract
+    }
+
+    lilWillDelay = lilWillDelay - 1;
+
+    if(lilWill){
+        lilWillPiston.set_value(true); // extend
+    }
+    if(!lilWill) {
+        lilWillPiston.set_value(false); // retract
+    }
 }
+
 void score(){
 
     armMotor.move_velocity(100);
@@ -52,6 +93,12 @@ void score(){
     }
 
 void intake(){
-    lilwillmechControl();
 
+    intakeMotor.move_velocity(200);
+    pros::delay(2000)
+
+
+}
+void lilwillmechControl(){
+    lilWillPiston.set_value(true);
 }

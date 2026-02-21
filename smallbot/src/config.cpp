@@ -19,9 +19,10 @@ pros::Motor armMotor(20, pros::E_MOTOR_GEARSET_36);
 pros::Motor armMotor2(-9, pros::E_MOTOR_GEARSET_36);
 
 pros::ADIDigitalOut armPiston ('B');
+pros::ADIDigitalOut wingPiston ('C');
+pros::ADIDigitalOut lilWillPiston ('A');
 
-pros::ADIDigitalIn upButtonSensor ('A');
-pros::ADIDigitalIn downButtonSensor ('C');
+
 
 std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()

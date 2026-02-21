@@ -87,6 +87,8 @@ extern pros::Motor armMotor2;
 
 
 extern pros::ADIDigitalOut armPiston;
+extern pros::ADIDigitalOut wingPiston;
+extern pros::ADIDigitalOut lilWillPiston;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 
