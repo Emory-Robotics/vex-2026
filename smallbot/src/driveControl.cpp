@@ -28,11 +28,6 @@ void driveControl(){
         lateral += std::min(lateralAcc, diff);
     }*/
 
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-        if (slowDrive == 1) slowDrive = 0.35;
-        else slowDrive = 1;
-    }
-
     forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 0.75 * slowDrive;
     lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 0.75 * slowDrive;
 

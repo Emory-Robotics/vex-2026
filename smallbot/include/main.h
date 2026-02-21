@@ -83,8 +83,12 @@ extern pros::Motor right4;
 
 extern pros::Motor intakeMotor;
 extern pros::Motor armMotor;
+extern pros::Motor armMotor2;
+
 
 extern pros::ADIDigitalOut armPiston;
+extern pros::ADIDigitalOut wingPiston;
+extern pros::ADIDigitalOut lilWillPiston;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 
@@ -106,7 +110,7 @@ void intake(void);
 void score(void);
 void lilwillmechControl(void);
 void lilwillmechControlAuton(void);
-void intakeStop(void);
+void intake(void);
 void lilwillmechControlAutonUP(void);
 void ramIntoWall(void);
 void ramOutWall(void);
