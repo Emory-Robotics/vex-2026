@@ -24,16 +24,16 @@ void intakeControl(){
         intakeMotor.move_velocity(-200);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && (clamp == true)){
-        armMotor.move_velocity(50);
-        armMotor2.move_velocity(50);
+        armMotor.move_velocity(65);
+        armMotor2.move_velocity(65);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && (clamp == false)){
-        armMotor.move_velocity(25);
-        armMotor2.move_velocity(25);
+        armMotor.move_velocity(65);
+        armMotor2.move_velocity(65);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-        armMotor.move_velocity(-50);
-        armMotor2.move_velocity(-50);
+        armMotor.move_velocity(-75);
+        armMotor2.move_velocity(-75);
     }
     else {
         intakeMotor.move_velocity(0);
@@ -95,6 +95,7 @@ void score(){
 void intake(){
     intakeMotor.move_velocity(200);
     pros::delay(1000);
+    intakeMotor.move_velocity(0);
 
 }
 void lilwillmechControl(){
@@ -104,9 +105,13 @@ void armUp() {
     armMotor2.move_velocity(100);
     armMotor.move_velocity(100);
     pros::delay(1000);
+    armMotor2.move_velocity(0);
+    armMotor.move_velocity(0);
 }
 void armDown() {
     armMotor2.move_velocity(-100);
     armMotor.move_velocity(-100);
     pros::delay(1000);
+    armMotor2.move_velocity(0);
+    armMotor.move_velocity(0);
 }
