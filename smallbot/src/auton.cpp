@@ -25,12 +25,12 @@ void auton(){
     // intake();
     // chassis -> moveDistance(-0.45_ft);
 
-    chassis -> moveDistance(-1.3_ft);
+    chassis -> moveDistance(-1.25_ft);
     chassis -> turnAngle(-38_deg);
     chassis -> moveDistance(-0.15_ft);
 
     intake();
-    armUp();
+    autonArmUp();
     pros::delay(500);
     armDown();
     intakeMotor.move_velocity(0);

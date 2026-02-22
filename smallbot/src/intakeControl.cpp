@@ -103,9 +103,9 @@ void armUp() {
     armMotor.move_velocity(0);
 }
 void autonArmUp() {
-    armMotor2.move_velocity(40);
-    armMotor.move_velocity(40);
-    pros::delay(1500);
+    armMotor2.move_velocity(50);
+    armMotor.move_velocity(50);
+    pros::delay(1800);
     armMotor2.move_velocity(0);
     armMotor.move_velocity(0);
 }

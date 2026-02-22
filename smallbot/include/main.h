@@ -113,6 +113,7 @@ void lilwillmechControlAutonUP(void);
 void ramIntoWall(void);
 void ramOutWall(void);
 void armUp(void);
+void autonArmUp(void);
 void armDown(void);
 #ifdef __cplusplus
 }
