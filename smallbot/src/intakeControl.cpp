@@ -24,16 +24,16 @@ void intakeControl(){
         intakeMotor.move_velocity(-200);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && (clamp == true)){
-        armMotor.move_velocity(50);
-        armMotor2.move_velocity(50);
+        armMotor.move_velocity(65);
+        armMotor2.move_velocity(65);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && (clamp == false)){
-        armMotor.move_velocity(25);
-        armMotor2.move_velocity(25);
+        armMotor.move_velocity(65);
+        armMotor2.move_velocity(65);
     }
     else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-        armMotor.move_velocity(-50);
-        armMotor2.move_velocity(-50);
+        armMotor.move_velocity(-75);
+        armMotor2.move_velocity(-75);
     }
     else {
         intakeMotor.move_velocity(0);
@@ -84,29 +84,35 @@ void intakeControl(){
         lilWillPiston.set_value(false); // retract
     }
 }
-
 void score(){
-
     armMotor.move_velocity(100);
     armMotor2.move_velocity(100);
     pros::delay(1000);
-    }
-
+}
 void intake(){
     intakeMotor.move_velocity(200);
-    pros::delay(1000);
-
 }
 void lilwillmechControl(){
     lilWillPiston.set_value(false);
 }
 void armUp() {
-    armMotor2.move_velocity(100);
-    armMotor.move_velocity(100);
-    pros::delay(1000);
+    armMotor2.move_velocity(60);
+    armMotor.move_velocity(60);
+    pros::delay(1500);
+    armMotor2.move_velocity(0);
+    armMotor.move_velocity(0);
+}
+void autonArmUp() {
+    armMotor2.move_velocity(40);
+    armMotor.move_velocity(40);
+    pros::delay(1500);
+    armMotor2.move_velocity(0);
+    armMotor.move_velocity(0);
 }
 void armDown() {
     armMotor2.move_velocity(-100);
     armMotor.move_velocity(-100);
     pros::delay(1000);
+    armMotor2.move_velocity(0);
+    armMotor.move_velocity(0);
 }

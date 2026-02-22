@@ -28,8 +28,8 @@ void driveControl(){
         lateral += std::min(lateralAcc, diff);
     }*/
 
-    forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) * 0.75 * slowDrive;
-    lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X) * 0.75 * slowDrive;
+    forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+    lateral = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
     int left = forward - lateral;
     int right = - forward - lateral;
